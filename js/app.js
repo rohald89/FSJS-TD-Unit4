@@ -12,4 +12,4 @@
  document.querySelector('#qwerty').addEventListener('click', e => {
      game.handleInteraction(e.target);
  });
- document.addEventListener('keydown', e => console.log(e.key));
+ document.addEventListener('keydown', e => game.handleKeyboard(e.key));

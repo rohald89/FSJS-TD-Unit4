@@ -41,6 +41,7 @@ class Game{
       */
     handleInteraction(clickedButton){
         if(clickedButton.tagName === "BUTTON"){
+            console.log('check');
             clickedButton.disabled = true;
             if(!this.activePhrase.checkLetter(clickedButton.textContent)){
                 clickedButton.classList.add('wrong');
@@ -53,11 +54,14 @@ class Game{
                 }
             }
         }
-        /** 
-         * Disable the selected letter’s onscreen keyboard button.
-         *   If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
-         *   If the phrase includes the guessed letter, add the chosen CSS class to the selected letter's keyboard button, call the showMatchedLetter() method on the phrase, *   and then call the checkForWin() method. If the player has won the game, also call the gameOver() method.
-         */
+
+    }
+    handleKeyboard(key){
+        document.querySelectorAll('.key').forEach(button => {
+            if(key === button.textContent){
+                button.click();
+            }
+        });
     }
 
      /**
