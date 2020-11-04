@@ -43,7 +43,7 @@ class Game{
                 this.removeLife();
             } else {
                 clickedButton.classList.add('chosen');
-                this.activePhrase.showMatchedLetter();
+                this.activePhrase.showMatchedLetter(clickedButton.textContent);
                 if(this.checkForWin()){
                     this.gameOver();
                 }
@@ -73,7 +73,9 @@ class Game{
       * this method checks to see if the player has revealed all of the letters in the active phrase.
       */
     checkForWin(){
-        console.log('checking for win');
+        const letters = document.querySelectorAll('.letter');
+        const chosen = document.querySelectorAll('.show');
+        return letters.length === chosen.length;
     }
 
      /**

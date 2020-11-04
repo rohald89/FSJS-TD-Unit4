@@ -29,9 +29,13 @@
      }
 
      /**
-      * 
+      * reveals the letter(s) on the board that matches the player's selection. To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter and replace each selected element's hide CSS class with the show CSS class.
       */
-     showMatchedLetter(){
-
+     showMatchedLetter(letter){
+        const matchedLetter = document.querySelectorAll(`.${letter}`);
+        matchedLetter.forEach(letter => {
+            letter.classList.remove('hide');
+            letter.classList.add('show');
+        })
      }
  }
