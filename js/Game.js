@@ -19,7 +19,11 @@ class Game{
       * It also adds that phrase to the board by calling the addPhraseToDisplay() method on the active Phrase object.
       */
     startGame(){
-        document.querySelector('#overlay').style.display = 'none';
+        const overlay = document.querySelector('#overlay');
+        if(overlay.className === 'win' || overlay.className === 'lose'){
+            this.resetGame();
+        }
+        overlay.style.display = 'none';
         this.activePhrase = new Phrase(this.getRandomPhrase());
         this.activePhrase.addPhraseToDisplay();
     }
@@ -83,6 +87,27 @@ class Game{
       * and replaces the overlay’s start CSS class with either the win or lose CSS class.
       */
     gameOver(){
-        console.log("GAME OVER!");
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = 'flex';
+        if(this.checkForWin()){
+            overlay.className = 'win';
+            document.querySelector('#game-over-message').textContent = `Congratulations you've won!`;
+        } else {
+            overlay.className = 'lose';
+            document.querySelector('#game-over-message').textContent = `Better luck next time`;
+        }
+    }
+
+    /**
+     * Reset the heart images, phrase ul and onscreen keyboard
+     */
+    resetGame(){
+        document.querySelectorAll('[src="images/lostHeart.png"]').forEach( heart => heart.src = "images/liveHeart.png");
+        this.missed = 0;
+        document.querySelector('#phrase ul').innerHTML = '';
+        document.querySelectorAll('.key').forEach(key => {
+            key.className = 'key';
+            key.disabled = false;
+        })
     }
 }
