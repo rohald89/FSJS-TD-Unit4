@@ -25,7 +25,7 @@
       *  Check to see if the clicked letter is present in the phrase
       */
      checkLetter(letter){
-        return this.phrase.includes(letter.textContent);
+        return this.phrase.includes(letter);
      }
 
      /**
