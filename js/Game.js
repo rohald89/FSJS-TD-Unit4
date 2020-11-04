@@ -36,13 +36,19 @@
       * and then directs the game based on a correct or incorrect guess.
       */
      handleInteraction(clickedButton){
-        clickedButton.disabled = true;
-         if(!this.activePhrase.checkLetter(clickedButton)){
-            clickedButton.classList.add('wrong');
-            this.removeLife();
-         } else {
-            clickedButton.classList.add('chosen');
-         }
+         if(clickedButton.tagName === "BUTTON"){
+            clickedButton.disabled = true;
+            if(!this.activePhrase.checkLetter(clickedButton)){
+                clickedButton.classList.add('wrong');
+                this.removeLife();
+            } else {
+                clickedButton.classList.add('chosen');
+                this.activePhrase.showMatchedLetter();
+                if(this.checkForWin()){
+                    this.gameOver();
+                }
+            }
+        }
         /** 
          * Disable the selected letter’s onscreen keyboard button.
          *   If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
@@ -55,14 +61,14 @@
       * increments the missed property. If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
       */
      removeLife(){
-        console.log('POOF a life is gone!')
+        console.log('POOF a life is gone!');
      }
 
      /**
       * this method checks to see if the player has revealed all of the letters in the active phrase.
       */
      checkForWin(){
-
+        console.log('checking for win');
      }
 
      /**
@@ -70,6 +76,6 @@
       * and replaces the overlay’s start CSS class with either the win or lose CSS class.
       */
      gameOver(){
-
+        
      }
  }
