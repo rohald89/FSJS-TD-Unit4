@@ -8,7 +8,8 @@
      }
 
      /**
-      * 
+      * split the phrase into an array and loop over it. 
+      * if the character is a space give the li the class space else give it the class of letter
       */
      addPhraseToDisplay(){
         this.phrase.split("").forEach(letter => {
@@ -21,10 +22,10 @@
      }
 
      /**
-      * 
+      *  Check to see if the clicked letter is present in the phrase
       */
-     checkLetter(e){
-        console.log(e)
+     checkLetter(letter){
+        return this.phrase.includes(letter.textContent);
      }
 
      /**

@@ -35,7 +35,14 @@
       * It checks to see if the button clicked by the player matches a letter in the phrase, 
       * and then directs the game based on a correct or incorrect guess.
       */
-     handleInteraction(){
+     handleInteraction(clickedButton){
+        clickedButton.disabled = true;
+         if(!this.activePhrase.checkLetter(clickedButton)){
+            clickedButton.classList.add('wrong');
+            this.removeLife();
+         } else {
+            clickedButton.classList.add('chosen');
+         }
         /** 
          * Disable the selected letter’s onscreen keyboard button.
          *   If the phrase does not include the guessed letter, add the wrong CSS class to the selected letter's keyboard button and call the removeLife() method.
@@ -47,8 +54,8 @@
       * removes a life from the scoreboard, by replacing one of the liveHeart.png images with a lostHeart.png image (found in the images folder) and 
       * increments the missed property. If the player has five missed guesses (i.e they're out of lives), then end the game by calling the gameOver() method.
       */
-     removeLive(){
-
+     removeLife(){
+        console.log('POOF a life is gone!')
      }
 
      /**
