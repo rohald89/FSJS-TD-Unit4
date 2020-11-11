@@ -1,7 +1,7 @@
 class Phrase {
-    constructor(phrase) {
-        this.phrase = phrase.phrase.toLowerCase();
-        this.hint = phrase.hint;
+    constructor(phrase, hint) {
+        this.phrase = phrase.toLowerCase();
+        this.hint = hint;
     }
 
     /**

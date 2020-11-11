@@ -3,22 +3,12 @@ class Game {
         this.missed = 0;
         this.sound = false;
         this.phrases = [
-            {
-                phrase: "A Long Time Ago in a Galaxy Far Far Away",
-                hint: "First phrase of the intro of each movies"
-            }, {
-                phrase: "A new hope",
-                hint: "Title of the first Star Wars movie"
-            }, {
-                phrase: "The Mandalorian",
-                hint: "Name of the tv show created by Disney"
-            }, {
-                phrase: "I am your father",
-                hint: "Famous quote by Darth Vader"
-            }, {
-                phrase: "May the force be with you",
-                hint: "Phrase used to wish someone good luck or good will"
-            },];
+            new Phrase("A Long Time Ago in a Galaxy Far Far Away", "First phrase of the intro of each movies"),
+            new Phrase("A new hope", "Title of the first Star Wars movie"),
+            new Phrase("The Mandalorian", "Name of the tv show created by Disney"),
+            new Phrase("I am your father", "Famous quote by Darth Vader"),
+            new Phrase("May the force be with you", "Phrase used to wish someone good luck or good will"),
+        ];
         this.activePhrase = null;
     }
 
@@ -32,7 +22,7 @@ class Game {
             this.resetGame();
         }
         overlay.style.display = 'none';
-        this.activePhrase = new Phrase(this.getRandomPhrase());
+        this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
         // make sure if the sound is on to start playing again on restart
         if (!document.querySelector('#volume').classList.contains('fa-volume-mute')) {
