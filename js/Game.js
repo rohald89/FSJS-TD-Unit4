@@ -2,11 +2,11 @@ class Game {
     constructor() {
         this.missed = 0;
         this.sound = false;
-        this.phrases = ["This will be phrase ONE",
-            "this will be phrase TWO",
-            "this will be phrase THREE",
-            "this will be phrase FOUR",
-            "this will be phrase FIVE"];
+        this.phrases = ["A Long Time Ago in a Galaxy Far Far Away",]
+        // "this will be phrase TWO",
+        // "this will be phrase THREE",
+        // "this will be phrase FOUR",
+        // "this will be phrase FIVE"];
         this.activePhrase = null;
     }
 
@@ -22,6 +22,11 @@ class Game {
         overlay.style.display = 'none';
         this.activePhrase = new Phrase(this.getRandomPhrase());
         this.activePhrase.addPhraseToDisplay();
+        // make sure if the sound is on to start playing again on restart
+        if (!document.querySelector('#volume').classList.contains('fa-volume-mute')) {
+            this.sound = true;
+            document.querySelector('#theme').play();
+        };
     }
 
     /**
@@ -45,7 +50,11 @@ class Game {
             } else {
                 clickedButton.classList.add('chosen');
                 this.activePhrase.showMatchedLetter(clickedButton.textContent);
-                this.sound ? document.querySelector('#blaster').play() : null;
+                //reset the blaster sound for when 2 buttons are pressed right after eachother
+                if (this.sound) {
+                    document.querySelector('#blaster').currentTime = 0;
+                    document.querySelector('#blaster').play();
+                }
                 if (this.checkForWin()) {
                     this.gameOver();
                 }
@@ -109,6 +118,7 @@ class Game {
      * display the Overlay again and change the classname to either win or lose with a message about the result. 
      */
     gameOver() {
+        document.querySelector('#theme').pause();
         const overlay = document.querySelector('#overlay');
         overlay.style.display = 'flex';
         if (this.checkForWin()) {
@@ -134,5 +144,21 @@ class Game {
         });
         // reset position of the lightsaber
         document.querySelector('.lightsaber').style.right = `${-35 * this.missed}px`;
+    }
+
+    /**
+     * Toggel sound on / off
+     */
+    toggleSound(e) {
+        if (!e.classList.contains('fa-volume-mute')) {
+            e.className = 'fas fa-2x fa-volume-mute';
+            this.sound = false;
+            document.querySelector('#theme').pause();
+        } else {
+            e.className = 'fas fa-2x fa-volume';
+            this.sound = true;
+            document.querySelector('#theme').play();
+            document.querySelector('#theme').loop = true;
+        }
     }
 }

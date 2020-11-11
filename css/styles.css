@@ -1,6 +1,9 @@
 /* Main styles */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300");
-
+@font-face {
+  font-family: DistantGalaxy;
+  src: url(../font/DistantGalaxy.ttf);
+}
 /* Variables */
 
 :root {
@@ -20,7 +23,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: DistantGalaxy, "Montserrat", sans-serif;
 }
 
 body {
@@ -91,7 +94,9 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: yellow;
 }
 
 /* Phrase */
