@@ -100,6 +100,10 @@ button.key{
   justify-content: center;
   flex-wrap: wrap;
 }
+#phrase ul div{
+  margin: 15px;
+  display: flex;
+}
 
 /* Title */
 

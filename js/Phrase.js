@@ -8,13 +8,22 @@ class Phrase {
      * if the character is a space give it the space class otherwise the letter class
      */
     addPhraseToDisplay() {
-        this.phrase.split("").forEach(letter => {
-            if (letter === " ") {
-                document.querySelector('#phrase ul').innerHTML += `<li class="space">${letter}</li>`;
-            } else {
-                document.querySelector('#phrase ul').innerHTML += `<li class="hide letter ${letter}">${letter}</li>`;
-            }
-        });
+        this.phrase.split(" ").forEach(word => {
+            const words = document.createElement('DIV');
+            words.innerHTML = '';
+            word.split('').forEach(letter => {
+                console.log(letter);
+                words.innerHTML += `<li class="hide letter ${letter}">${letter}</li>`;
+            });
+            document.querySelector('#phrase ul').append(words);
+        })
+        // this.phrase.split("").forEach(letter => {
+        //     if (letter === " ") {
+        //         document.querySelector('#phrase ul').innerHTML += `<li class="space">${letter}</li>`;
+        //     } else {
+        //         document.querySelector('#phrase ul').innerHTML += `<li class="hide letter ${letter}">${letter}</li>`;
+        //     }
+        // });
     }
 
     /**
