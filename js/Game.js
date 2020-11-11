@@ -1,7 +1,8 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = ["this will be phrase ONE",
+        this.sound = false;
+        this.phrases = ["This will be phrase ONE",
             "this will be phrase TWO",
             "this will be phrase THREE",
             "this will be phrase FOUR",
@@ -44,6 +45,7 @@ class Game {
             } else {
                 clickedButton.classList.add('chosen');
                 this.activePhrase.showMatchedLetter(clickedButton.textContent);
+                this.sound ? document.querySelector('#blaster').play() : null;
                 if (this.checkForWin()) {
                     this.gameOver();
                 }
@@ -72,6 +74,11 @@ class Game {
         document.querySelector('.saber').classList.add('active');
         // move lightsaber so it hits the correct heart
         document.querySelector('.lightsaber').style.right = `${-35 * this.missed}px`;
+        // play lightsaber sound
+        this.sound ? document.querySelector('#saberon').play() : null;
+        setTimeout(() => {
+            this.sound ? document.querySelector('#swing').play() : null;
+        }, 1150);
         setTimeout(() => {
             document.querySelectorAll('[src="images/liveStormtrooper.png"]')[0].src = 'images/lostStormtrooper.png';
         }, 1700);
@@ -79,7 +86,9 @@ class Game {
             document.querySelectorAll('.key').forEach(key => key.style.pointerEvents = "initial");
             document.querySelector('.saber').classList.remove('active');
             this.missed++;
-
+            if (this.missed === 4) {
+                `At the end your rule is and not short enough it was!`;
+            }
             if (this.missed === 5) {
                 this.gameOver();
             }
@@ -105,19 +114,18 @@ class Game {
         if (this.checkForWin()) {
             overlay.className = 'win';
             document.querySelector('#game-over-message').textContent = `At last the Jedi are no more`;
-            document.querySelector('#btn__reset').textContent = `Play again`;
         } else {
             overlay.className = 'lose';
             document.querySelector('#game-over-message').textContent = `If so powerfull you are, Why leave?`;
-            document.querySelector('#btn__reset').textContent = `Play again`;
         }
+        document.querySelector('#btn__reset').textContent = `Play again`;
     }
 
     /**
      * Reset the heart images, phrase ul and onscreen keyboard
      */
     resetGame() {
-        document.querySelectorAll('[src="images/lostStormtrooper.png"]').forEach(heart => heart.src = "images/liveStormtrooper.png");
+        document.querySelectorAll('[src="images/lostStormtrooper.png"]').forEach(life => life.src = "images/liveStormtrooper.png");
         this.missed = 0;
         document.querySelector('#phrase ul').innerHTML = '';
         document.querySelectorAll('.key').forEach(key => {

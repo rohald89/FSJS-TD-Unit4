@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Phrase Hunter</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/e1b6966a6a.js" crossorigin="anonymous"></script>
 	<link href="css/styles.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -12,6 +13,7 @@
 
 <body>
 	<div class="main-container">
+		<i class="fas fa-2x fa-volume-mute" id='volume'></i>
 		<div id="overlay" class="start">
 			<h2 class="title">Phrase Hunter</h2>
 			<h1 id="game-over-message"></h1>
@@ -82,7 +84,10 @@
 		<img src="./images/yoda.png" alt="yoda" id="yoda">
 
 	</div>
-
+	<audio src="./audio/Star Wars.mp3" id='theme'></audio>
+	<audio src="./audio/blaster.mp3" id='blaster'></audio>
+	<audio src="./audio/SaberOn.mp3" id='saberon'></audio>
+	<audio src="./audio/Spin 4.mp3" id='swing'></audio>
 </body>
 
 <script type="text/javascript" src="js/Phrase.js"></script>

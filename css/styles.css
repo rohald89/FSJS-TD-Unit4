@@ -103,11 +103,11 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  background: var(--color-neutral-light);
+  
   border-radius: 5px;
 }
 .hide.letter {
-  opacity: 0.3;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0)25%, rgba(135,220,90,0.5)75%, rgba(135,220,90,1) 100%);
 }
 
 .space {
@@ -116,7 +116,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #d5534a;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -270,7 +270,6 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 5px;
   z-index: 99;
 }
 
@@ -320,4 +319,16 @@ button {
   left: 50px;
   bottom: 0;
   max-height: 400px;
+}
+
+#volume{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  color: grey;
+}
+#volume.fa-volume{
+  color: yellow;
+  transition: 2s all;
 }
