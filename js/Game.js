@@ -125,9 +125,11 @@ class Game {
         overlay.style.display = 'flex';
         if (this.checkForWin()) {
             overlay.className = 'win';
+            document.querySelector('.title').textContent = 'You Won!';
             document.querySelector('#game-over-message').textContent = `At last the Jedi are no more`;
         } else {
             overlay.className = 'lose';
+            document.querySelector('.title').textContent = 'You Lost!';
             document.querySelector('#game-over-message').textContent = `If so powerfull you are, Why leave?`;
         }
         document.querySelector('#btn__reset').textContent = `Play again`;
