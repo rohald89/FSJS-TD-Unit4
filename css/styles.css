@@ -58,14 +58,17 @@ button {
   margin: 6px;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
-  color: yellow;
+  color: white;
   font-size: var(--font-size-medium);
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.479);
   border-radius: 5px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+}
+button.key{
+  color: yellow;
   box-shadow: 0 0 4px white;
 }
 
@@ -92,6 +95,11 @@ button {
   margin-top: 15px;
 }
 
+#phrase ul{
+  display: flex;
+  justify-content: center;
+}
+
 /* Title */
 
 .header {
@@ -104,33 +112,30 @@ button {
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
+  height: 45px;
+  width: 35px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  /* transition: .5s all; */
-
+  font-size: 26px;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0)25%, rgba(255, 255, 255, 0.5)75%, rgba(255, 255, 255, 0.767) 100%);
   border-radius: 5px;
 }
 .hide.letter {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0)25%, rgba(135,220,90,0.5)75%, rgba(135,220,90,1) 100%);
+  /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0)25%, rgba(255, 255, 255, 0.5)75%, rgba(255, 255, 255, 0.767) 100%); */
 }
 
 .space {
-  width: 15px;
+  width: 24px;
 }
 
 .show {
   color: #fff;
-  background-color: #d5534ac2;
   font-size: 20px;
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  height: 45px;
+  width: 35px;
   border-radius: 5px;
-  animation: fadeInDown .2s;
+  animation: fadeIn .4s;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
