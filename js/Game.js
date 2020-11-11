@@ -148,6 +148,10 @@ class Game {
         });
         // reset position of the lightsaber
         document.querySelector('.lightsaber').style.right = `${-35 * this.missed}px`;
+        // reset the hint 
+        const hint = document.querySelector('#hint');
+        hint.textContent = '';
+        hint.classList.remove('showhint');
     }
 
     /**
@@ -169,6 +173,6 @@ class Game {
     getHint() {
         const hint = document.querySelector('#hint');
         hint.innerHTML = this.activePhrase.hint;
-        hint.classList.toggle('showhint');
+        hint.classList.add('showhint');
     }
 }
