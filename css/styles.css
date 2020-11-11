@@ -58,14 +58,15 @@ button {
   margin: 6px;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
-  color: var(--color-keys);
+  color: yellow;
   font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  box-shadow: 0 0 4px white;
 }
 
 #btn__reset {
@@ -108,7 +109,8 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  
+  /* transition: .5s all; */
+
   border-radius: 5px;
 }
 .hide.letter {
@@ -121,13 +123,14 @@ button {
 
 .show {
   color: #fff;
-  background-color: #d5534a;
+  background-color: #d5534ac2;
   font-size: 20px;
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   border-radius: 5px;
+  animation: fadeInDown .2s;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
@@ -231,7 +234,6 @@ button {
 .keyrow {
   display: flex;
   justify-content: center;
-  opacity: 0.6;
 }
 
 .chosen {
@@ -239,11 +241,13 @@ button {
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #ffffff;
+  opacity: .5;
 }
 
 .wrong {
   background: #f76464;
   color: #ffffff;
+  opacity: .5;
 }
 
 .btn__reset {
@@ -276,6 +280,10 @@ button {
   left: 0;
   right: 0;
   z-index: 99;
+  background-size: cover;
+  background-image: url(../images/cockpit.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .title {
