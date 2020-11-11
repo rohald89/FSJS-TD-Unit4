@@ -98,6 +98,7 @@ button.key{
 #phrase ul{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Title */
@@ -152,7 +153,7 @@ button.key{
 /*   background-color: lightgrey; */
   border-radius: 6px;
   position: relative;
-  background: linear-gradient(to right, rgba(150,150,150,1) 0%, rgba(254,254,254,1) 100%)
+  background: linear-gradient(to right, rgb(221, 221, 221) 0%, rgba(255, 255, 255, 1) 25%, rgb(201, 201, 201) 60%, rgba(254,254,254,1) 100%)
 }
 
 .saber:before,
@@ -162,6 +163,7 @@ button.key{
   width: 15px;
   background-color: darkgrey;
   position: absolute;
+  box-shadow: inset 0 0 2px rgb(85, 85, 85);
 }
 .saber:before{
   border-radius: 5px 5px 0 0;
@@ -182,7 +184,7 @@ button.key{
   right: -3px;
   background-color: #666;
   border-radius: 50%;
-  box-shadow: 4px black;
+  box-shadow: inset 0 0 2px black;
 }
 
 .light{
@@ -329,22 +331,39 @@ button.key{
   position: fixed;
   right: 50px;
   bottom: 0;
-  max-height: 400px;
+  max-height: 50vh;
+  max-width: 25vw;
 }
 
 #palpatine{
   position: fixed;
   left: 50px;
   bottom: 0;
-  max-height: 400px;
+  max-height: 50vh;
+  max-width: 25vw;
 }
 
-#volume{
+.settings{
   position: fixed;
   top: 30px;
   right: 30px;
+}
+.settings #volume,
+.settings #hint{
   cursor: pointer;
   color: grey;
+}
+#hint .tooltip{
+  height: 20px;
+  width: 50px;
+  background-color: white;
+  display: none;
+}
+#hint:hover .tooltip{
+  display: initial;
+}
+.settings #volume{
+  margin-left: 30px;
 }
 #volume.fa-volume{
   color: yellow;
