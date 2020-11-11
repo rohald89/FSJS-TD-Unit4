@@ -2,11 +2,23 @@ class Game {
     constructor() {
         this.missed = 0;
         this.sound = false;
-        this.phrases = ["A Long Time Ago in a Galaxy Far Far Away",]
-        // "this will be phrase TWO",
-        // "this will be phrase THREE",
-        // "this will be phrase FOUR",
-        // "this will be phrase FIVE"];
+        this.phrases = [
+            {
+                phrase: "A Long Time Ago in a Galaxy Far Far Away",
+                hint: "First phrase of the intro of each movies"
+            }, {
+                phrase: "A new hope",
+                hint: "Title of the first Star Wars movie"
+            }, {
+                phrase: "The Mandalorian",
+                hint: "Name of the tv show created by Disney"
+            }, {
+                phrase: "I am your father",
+                hint: "Famous quote by Darth Vader"
+            }, {
+                phrase: "May the force be with you",
+                hint: "Phrase used to wish someone good luck or good will"
+            },];
         this.activePhrase = null;
     }
 
@@ -84,9 +96,9 @@ class Game {
         // move lightsaber so it hits the correct heart
         document.querySelector('.lightsaber').style.right = `${-35 * this.missed}px`;
         // play lightsaber sound
-        this.sound ? document.querySelector('#saberon').play() : null;
+        if (this.sound) { document.querySelector('#saberon').play(); }
         setTimeout(() => {
-            this.sound ? document.querySelector('#swing').play() : null;
+            if (this.sound) { document.querySelector('#swing').play(); }
         }, 1150);
         setTimeout(() => {
             document.querySelectorAll('[src="images/liveStormtrooper.png"]')[0].src = 'images/lostStormtrooper.png';
@@ -160,5 +172,11 @@ class Game {
             document.querySelector('#theme').play();
             document.querySelector('#theme').loop = true;
         }
+    }
+
+    getHint() {
+        const hint = document.querySelector('#hint');
+        hint.innerHTML = this.activePhrase.hint;
+        hint.classList.toggle('showhint');
     }
 }

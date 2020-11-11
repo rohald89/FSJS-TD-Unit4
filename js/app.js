@@ -18,3 +18,7 @@ document.addEventListener('keydown', e => game.handleKeyboard(e.key));
 document.querySelector('#volume').addEventListener('click', e => {
     game.toggleSound(e.target);
 });
+
+document.querySelector('#gethint').addEventListener('click', () => {
+    game.getHint();
+});

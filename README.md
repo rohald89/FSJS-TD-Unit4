@@ -20,11 +20,11 @@ This is my fourth project for the FullStack JavaScript Techdegree. For this proj
 - Mute toggle in case you prefer to play without the music & effects
 - Keydown event has been added for typing on your keyboard
 - Words are no longer broken up when the screen is narrower than the phrase
+- Hints will be help you out when you get stuck on a phrase
 
 ## Upcoming Versions
 
 - Light Side will be added to take on against the Sith
-- Hints will be added for when you get stuck on a phrase
 - Yoda and Palpatine will cheer you on with movie quotes
 - Mobile Friendly
 

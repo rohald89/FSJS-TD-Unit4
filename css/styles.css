@@ -80,7 +80,8 @@ button.key{
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-content: center;
   height: 100%;
   max-height: 900px;
   text-align: center;
@@ -143,6 +144,17 @@ button.key{
   animation: fadeIn .4s;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
+}
+
+#hint{
+  color: white;
+  font-size: 25px;;
+  font-weight: 100;
+  visibility: hidden;
+  flex-shrink: 0;
+}
+#hint.showhint{
+  visibility: initial;
 }
 
 /* Light saber*/
@@ -331,20 +343,20 @@ button.key{
   margin: 0 auto;
 }
 
-#yoda{
+#yoda,
+#palpatine{
   position: fixed;
-  right: 50px;
+  pointer-events: none;
   bottom: 0;
+  height: 300px;
   max-height: 50vh;
   max-width: 25vw;
 }
-
+#yoda{
+  right: 50px;
+}
 #palpatine{
-  position: fixed;
   left: 50px;
-  bottom: 0;
-  max-height: 50vh;
-  max-width: 25vw;
 }
 
 .settings{
@@ -353,17 +365,17 @@ button.key{
   right: 30px;
 }
 .settings #volume,
-.settings #hint{
+.settings #gethint{
   cursor: pointer;
   color: grey;
 }
-#hint .tooltip{
+#gethint .tooltip{
   height: 20px;
   width: 50px;
   background-color: white;
   display: none;
 }
-#hint:hover .tooltip{
+#gethint:hover .tooltip{
   display: initial;
 }
 .settings #volume{
