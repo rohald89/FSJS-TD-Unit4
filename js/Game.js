@@ -67,13 +67,13 @@ class Game {
     /**
      * select all buttons and if the textcontent matches the typed letter run the click() method on it to simulate a mouseclick so the above methods get triggered.
      */
-    handleKeyboard(key) {
-        document.querySelectorAll('.key').forEach(button => {
-            if (key === button.textContent) {
-                button.click();
-            }
-        });
-    }
+    // handleKeyboard(key) {
+    //     document.querySelectorAll('.key').forEach(button => {
+    //         if (key === button.textContent) {
+    //             button.click();
+    //         }
+    //     });
+    // }
 
     /**
      * set pointer events to none during the animation to avoid animation from breaking
